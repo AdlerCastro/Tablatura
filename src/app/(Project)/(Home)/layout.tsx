@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/organisms/Header";
 import { ReactNode } from "react";
 
 export default function HomeLayout({ children }: { children: ReactNode }) {
