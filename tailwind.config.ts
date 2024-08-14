@@ -16,7 +16,8 @@ const config: Config = {
         app: 'min-content max-content',
       },
       gridTemplateColumns: {
-        Neck: '100px 6px 100px 6px 100px 6px',
+        Neck: 'repeat(4, minmax(0, 1fr))',
+        Frets: '96px 6px 96px 6px 96px 6px 96px',
       },
     },
   },
