@@ -1,11 +1,14 @@
 import Header from "@/components/organisms/Header";
-import { ReactNode } from "react";
 
-export default function HomeLayout({ children }: { children: ReactNode }) {
+export default function ProjectLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className="overflow-hidden w-full max-w-[2560px] h-screen mx-auto">
+    <main className="mx-auto w-screen h-screen">
       <Header />
       {children}
-    </div>
+    </main>
   );
 }
