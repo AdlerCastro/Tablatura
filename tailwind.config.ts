@@ -14,13 +14,22 @@ const config: Config = {
       },
       gridTemplateRows: {
         app: 'min-content max-content',
+        Frets: '96px 6px 96px 6px 96px 6px 96px',
       },
       gridTemplateColumns: {
         Neck: 'repeat(4, minmax(0, 1fr))',
-        Frets: '96px 6px 96px 6px 96px 6px 96px',
       },
+      height: {
+        main: 'calc(100% - 160px)'
+      },
+      spacing: {
+        mr: "4px" 
+      }
     },
   },
-  plugins: [],
+  
+  plugins: [
+    require('tailwind-scrollbar')({ nocompatible: true }),
+  ],
 };
 export default config;
