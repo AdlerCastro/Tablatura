@@ -25,7 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html className={`${inter.variable} ${poppins.variable}`} lang="pt-BR">
-      <body className=" bg-zinc-900 text-zinc-50 antialiased">{children}</body>
+      <body className="bg-zinc-900 text-zinc-50 antialiased truncate transition-all duration-300">
+        {children}
+      </body>
     </html>
   );
 }
