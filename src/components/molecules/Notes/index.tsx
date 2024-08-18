@@ -17,12 +17,12 @@ export default function Notes({ onSendNote }: NotesProps) {
   });
 
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div className="flex flex-col gap-3 w-full items-center">
       {data?.map((note) => (
         <Button
           key={note.id}
           onClick={() => onSendNote(note)}
-          className="w-full hover:scale-105"
+          className="w-[80%] hover:scale-110"
         >
           {note.title}
         </Button>
