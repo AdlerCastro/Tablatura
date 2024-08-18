@@ -49,6 +49,13 @@ export default function HomePage() {
           >
             <p>{showNote?.title}</p>
             <p>{showNote?.description}</p>
+            <div className="flex flex-col gap-2 bg-green-800 p-4 border border-solid border-green-300 rounded-md">
+              {Object.keys(showNote.tablature).map((corda) => (
+                <pre key={corda}>
+                  {`Corda ${corda}: Casa ${showNote.tablature[corda]}`}
+                </pre>
+              ))}
+            </div>
           </div>
         ) : (
           <Empty />
