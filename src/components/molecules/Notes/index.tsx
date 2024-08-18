@@ -3,7 +3,6 @@
 import { getNotes } from "@/app/actions/getNotes";
 import { useQuery } from "@tanstack/react-query";
 import Button from "@/components/atoms/Button";
-import { useState } from "react";
 import { Note } from "@/data/types/notes";
 
 interface NotesProps {
