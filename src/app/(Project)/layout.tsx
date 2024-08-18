@@ -1,4 +1,5 @@
 import Header from "@/components/organisms/Header";
+import TabProvider from "@/context/tab-provider";
 
 export default function ProjectLayout({
   children,
@@ -6,9 +7,11 @@ export default function ProjectLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="mx-auto w-screen h-screen">
-      <Header />
-      {children}
-    </main>
+    <TabProvider>
+      <main className="mx-auto w-screen h-screen">
+        <Header />
+        {children}
+      </main>
+    </TabProvider>
   );
 }
