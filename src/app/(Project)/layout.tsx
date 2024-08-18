@@ -1,4 +1,5 @@
 import Header from "@/components/organisms/Header";
+import ReactQueryProvider from "@/context/ReactQuery-provider";
 import TabProvider from "@/context/tab-provider";
 
 export default function ProjectLayout({
@@ -7,11 +8,13 @@ export default function ProjectLayout({
   children: React.ReactNode;
 }) {
   return (
-    <TabProvider>
-      <main className="mx-auto w-screen h-screen">
-        <Header />
-        {children}
-      </main>
-    </TabProvider>
+    <ReactQueryProvider>
+      <TabProvider>
+        <main className="mx-auto w-screen h-screen">
+          <Header />
+          {children}
+        </main>
+      </TabProvider>
+    </ReactQueryProvider>
   );
 }
