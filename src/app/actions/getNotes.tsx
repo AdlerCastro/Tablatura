@@ -1,14 +1,10 @@
 "use server";
 
 import { api } from "@/data/api";
-import { Note } from "@/data/types/notes";
+import { Note } from "@/data/models/Note";
 
 export async function getNotes(): Promise<Note[]> {
-  const response = await api("/Notes/getNotes", {
-    // next: {
-    //   revalidate: 60 * 2,
-    // },
-  });
+  const response = await api("/Notes/getNotes");
 
   const notes = await response.json();
 
