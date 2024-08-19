@@ -5,18 +5,30 @@ import path from 'path';
 import { noteSchema } from '@/data/models/Note';
 
 // Caminho para o arquivo JSON
-const jsonFilePath = path.join(process.cwd(), 'app', 'api', 'notes', 'data.json');
+const jsonFilePath = path.join(process.cwd(), 'src', 'app', 'api', 'Notes', 'data.json');
 
 // Função para ler o JSON
 const getNotesData = () => {
-  const jsonData = fs.readFileSync(jsonFilePath, 'utf-8');
-  return JSON.parse(jsonData);
+  try {
+    const jsonData = fs.readFileSync(jsonFilePath, 'utf-8');
+    console.log("Dados lidos do arquivo:", jsonData); // Adicione log aqui
+    return JSON.parse(jsonData);
+  } catch (error) {
+    console.error("Erro ao ler o arquivo JSON:", error);
+    throw new Error("Erro ao ler o arquivo de dados");
+  }
 };
 
-// Função para salvar no JSON
 const saveNotesData = (data: any) => {
-  fs.writeFileSync(jsonFilePath, JSON.stringify(data, null, 2));
+  try {
+    console.log("Dados a serem salvos:", data); // Adicione log aqui
+    fs.writeFileSync(jsonFilePath, JSON.stringify(data, null, 2));
+  } catch (error) {
+    console.error("Erro ao salvar o arquivo JSON:", error);
+    throw new Error("Erro ao salvar os dados");
+  }
 };
+
 
 export async function POST(request: Request) {
   const body = await request.json();
