@@ -1,14 +1,15 @@
 "use client";
-
+// Required for validation
 import { useMutation } from "@tanstack/react-query";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { noteSchema } from "@/data/models/Note";
 import { createNote } from "@/app/actions/createNote";
 import { NoteFormData } from "@/data/types/NoteFormData";
-import { useRouter } from "next/navigation";
+// Components
 import Button from "@/components/atoms/Button";
-import { Home } from "lucide-react";
+import { FileUp, Home, LoaderIcon } from "lucide-react";
 
 export default function CreateNote() {
   const {
@@ -30,46 +31,57 @@ export default function CreateNote() {
   const router = useRouter();
 
   return (
-    <div className="relative">
+    <>
       <Button
         onClick={() => router.back()}
-        className="absolute top-0 hover:scale-105 flex flex-row gap-2 items-center justify-center bg-green-700 hover:bg-green-800 transition-all duration-200"
+        className="absolute top-[168px] left-2 hover:scale-105 flex flex-row gap-2 items-center justify-center bg-green-700 hover:bg-green-800 transition-all duration-200"
       >
         <Home /> Voltar
       </Button>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-2 items-center justify-center"
+        className="flex flex-col gap-4 items-center mt-16"
       >
-        <div className="flex flex-row gap-2">
-          <label htmlFor="title">Título:</label>
-          <input
-            className="bg-zinc-700 rounded-md"
-            id="title"
-            type="text"
-            {...register("title")}
-          />
-          {errors.title && <p>{errors.title.message}</p>}
+        <div className="flex flex-col gap-2 items-start">
+          <div className="flex flex-col gap-2 items-start">
+            <label htmlFor="title" className="mr-4 flex flex-row gap-2">
+              Título:
+            </label>
+            <input
+              className="bg-zinc-700 rounded-md"
+              id="title"
+              type="text"
+              {...register("title")}
+              required
+            />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label
+              htmlFor="description"
+              className="flex flex-row gap-2 items-end"
+            >
+              Descrição: <p className="text-sm">&#40;Opcional&#41;</p>
+            </label>
+            <input
+              className="bg-zinc-700 rounded-md"
+              id="description"
+              type="text"
+              {...register("description")}
+            />
+          </div>
         </div>
 
-        <div className="flex flex-row gap-2">
-          <label htmlFor="description">Descrição:</label>
-          <input
-            className="bg-zinc-700 rounded-md"
-            id="description"
-            type="text"
-            {...register("description")}
-          />
-          {errors.description && <p>{errors.description.message}</p>}
-        </div>
-
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 items-center justify-center">
           <label>Tablatura:</label>
           {["E", "A", "D", "G", "B", "e"].map((key) => {
             const tablatureKey = `tablature.${key}` as keyof NoteFormData;
             return (
-              <div key={key} className="flex flex-row gap-2">
+              <div
+                key={key}
+                className="flex flex-row gap-2 items-center justify-center"
+              >
                 <label htmlFor={`tablature-${key}`}>{key}:</label>
                 <input
                   className="bg-zinc-700 rounded-md"
@@ -78,6 +90,7 @@ export default function CreateNote() {
                   {...register(tablatureKey, {
                     valueAsNumber: true, // Garante que o valor seja convertido para número
                   })}
+                  required
                 />
                 {errors.tablature?.[key] && (
                   <p>{errors.tablature[key]?.message}</p>
@@ -87,14 +100,34 @@ export default function CreateNote() {
           })}
         </div>
 
-        <button type="submit" disabled={mutation.isPending}>
-          {mutation.isPending ? "Adicionando..." : "Adicionar Nota"}
-        </button>
+        <Button
+          type="submit"
+          disabled={mutation.isPending}
+          className={`${
+            mutation.isPending
+              ? "bg-green-800 hover:bg-green-800"
+              : "bg-green-700 hover:bg-green-800"
+          }`}
+        >
+          {mutation.isPending ? (
+            <p className="flex gap-1">
+              Adicionando nota
+              <LoaderIcon className="animate-spin-slow" />
+            </p>
+          ) : (
+            <p className="flex gap-1">
+              Adicionar nota <FileUp />
+            </p>
+          )}
+        </Button>
         {mutation.isError && (
-          <p>Erro: {(mutation.error as Error)?.message || "Algo deu errado"}</p>
+          <p>
+            Erro:{" "}
+            {(mutation.error as Error)?.message || "Ops, algo deu errado ;-;"}
+          </p>
         )}
         {mutation.isSuccess && <p>Nota adicionada com sucesso!</p>}
       </form>
-    </div>
+    </>
   );
 }
