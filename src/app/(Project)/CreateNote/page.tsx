@@ -24,19 +24,8 @@ export default function CreateNote() {
   });
 
   const onSubmit: SubmitHandler<NoteFormData> = (data) => {
-    // Ensure that tablature has all the required keys
-    const completeTablature: NoteFormData["tablature"] = {
-      E: Number(data.tablature.E) || 0,
-      A: Number(data.tablature.A) || 0,
-      D: Number(data.tablature.D) || 0,
-      G: Number(data.tablature.G) || 0,
-      B: Number(data.tablature.B) || 0,
-      e: Number(data.tablature.e) || 0,
-    };
-
     const convertedData: NoteFormData = {
       ...data,
-      tablature: completeTablature,
     };
 
     mutation.mutate(convertedData);
@@ -47,7 +36,7 @@ export default function CreateNote() {
   return (
     <div className="relative">
       <Button
-        onClick={() => router.push("/CreateNote")}
+        onClick={() => router.back()}
         className="absolute top-0 hover:scale-105 flex flex-row gap-2 items-center justify-center bg-green-700 hover:bg-green-800 transition-all duration-200"
       >
         <Home /> Voltar
@@ -90,7 +79,9 @@ export default function CreateNote() {
                   className="bg-zinc-700 rounded-md"
                   id={`tablature-${key}`}
                   type="number"
-                  {...register(tablatureKey)}
+                  {...register(tablatureKey, {
+                    valueAsNumber: true, // Isso garante que o valor seja convertido para número
+                  })}
                 />
                 {errors.tablature?.[key as TablatureKeys] && (
                   <p>{errors.tablature[key as TablatureKeys]?.message}</p>
