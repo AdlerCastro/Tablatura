@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { noteSchema } from "@/data/models/Note";
 import { createNote } from "@/app/actions/createNote";
-import { NoteFormData, TablatureKeys } from "@/data/types/NoteFormData";
+import { NoteFormData } from "@/data/types/NoteFormData";
 import { useRouter } from "next/navigation";
 import Button from "@/components/atoms/Button";
 import { Home } from "lucide-react";
@@ -24,11 +24,7 @@ export default function CreateNote() {
   });
 
   const onSubmit: SubmitHandler<NoteFormData> = (data) => {
-    const convertedData: NoteFormData = {
-      ...data,
-    };
-
-    mutation.mutate(convertedData);
+    mutation.mutate(data);
   };
 
   const router = useRouter();
@@ -80,11 +76,11 @@ export default function CreateNote() {
                   id={`tablature-${key}`}
                   type="number"
                   {...register(tablatureKey, {
-                    valueAsNumber: true, // Isso garante que o valor seja convertido para número
+                    valueAsNumber: true, // Garante que o valor seja convertido para número
                   })}
                 />
-                {errors.tablature?.[key as TablatureKeys] && (
-                  <p>{errors.tablature[key as TablatureKeys]?.message}</p>
+                {errors.tablature?.[key] && (
+                  <p>{errors.tablature[key]?.message}</p>
                 )}
               </div>
             );
