@@ -1,95 +1,121 @@
 {
-    "notes": [
-        {
-            "id": 1,
-            "title": "C",
-            "description": "Nota C",
-            "tablature": {
-                "E": 0,
-                "A": 3,
-                "D": 2,
-                "G": 0,
-                "B": 1,
-                "e": 0
-            }
-        },
-        {
-            "id": 2,
-            "title": "D",
-            "description": "Nota D",
-            "tablature": {
-                "E": 0,
-                "A": 0,
-                "D": 0,
-                "G": 2,
-                "B": 3,
-                "e": 2
-            }
-        },
-        {
-            "id": 3,
-            "title": "E",
-            "description": "Nota E",
-            "tablature": {
-                "E": 0,
-                "A": 2,
-                "D": 2,
-                "G": 1,
-                "B": 0,
-                "e": 0
-            }
-        },
-        {
-            "id": 4,
-            "title": "F",
-            "description": "Nota F",
-            "tablature": {
-                "E": 1,
-                "A": 3,
-                "D": 3,
-                "G": 2,
-                "B": 1,
-                "e": 1
-            }
-        },
-        {
-            "id": 5,
-            "title": "G",
-            "description": "Nota G",
-            "tablature": {
-                "E": 3,
-                "A": 2,
-                "D": 0,
-                "G": 0,
-                "B": 0,
-                "e": 3
-            }
-        },
-        {
-            "id": 6,
-            "title": "A",
-            "description": "Nota A",
-            "tablature": {
-                "E": 0,
-                "A": 0,
-                "D": 2,
-                "G": 2,
-                "B": 2,
-                "e": 0
-            }
-        },
-        {
-            "id": 7,
-            "title": "B",
-            "description": "Nota B",
-            "tablature": {
-                "E": 0,
-                "A": 2,
-                "D": 4,
-                "G": 4,
-                "B": 4,
-                "e": 2
-            }
-        }
-    ]
+  "notes": [
+    {
+      "id": 1,
+      "title": "C",
+      "description": "Nota C",
+      "tablature": {
+        "E": 0,
+        "A": 3,
+        "D": 2,
+        "G": 0,
+        "B": 1,
+        "e": 0
+      }
+    },
+    {
+      "id": 2,
+      "title": "D",
+      "description": "Nota D",
+      "tablature": {
+        "E": 0,
+        "A": 0,
+        "D": 0,
+        "G": 2,
+        "B": 3,
+        "e": 2
+      }
+    },
+    {
+      "id": 3,
+      "title": "E",
+      "description": "Nota E",
+      "tablature": {
+        "E": 0,
+        "A": 2,
+        "D": 2,
+        "G": 1,
+        "B": 0,
+        "e": 0
+      }
+    },
+    {
+      "id": 4,
+      "title": "F",
+      "description": "Nota F",
+      "tablature": {
+        "E": 1,
+        "A": 3,
+        "D": 3,
+        "G": 2,
+        "B": 1,
+        "e": 1
+      }
+    },
+    {
+      "id": 5,
+      "title": "G",
+      "description": "Nota G",
+      "tablature": {
+        "E": 3,
+        "A": 2,
+        "D": 0,
+        "G": 0,
+        "B": 0,
+        "e": 3
+      }
+    },
+    {
+      "id": 6,
+      "title": "A",
+      "description": "Nota A",
+      "tablature": {
+        "E": 0,
+        "A": 0,
+        "D": 2,
+        "G": 2,
+        "B": 2,
+        "e": 0
+      }
+    },
+    {
+      "id": 7,
+      "title": "B",
+      "description": "Nota B",
+      "tablature": {
+        "E": 0,
+        "A": 2,
+        "D": 4,
+        "G": 4,
+        "B": 4,
+        "e": 2
+      }
+    },
+    {
+      "id": 8,
+      "title": "Em",
+      "description": "Nota Em no violão",
+      "tablature": {
+        "E": 0,
+        "A": 2,
+        "D": 2,
+        "G": 0,
+        "B": 0,
+        "e": 0
+      }
+    },
+    {
+      "id": 9,
+      "title": "Dm",
+      "description": "Nota Dm no violão",
+      "tablature": {
+        "E": 0,
+        "A": 0,
+        "D": 0,
+        "G": 2,
+        "B": 3,
+        "e": 1
+      }
+    }
+  ]
 }
