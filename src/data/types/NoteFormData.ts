@@ -1,6 +1,3 @@
-import { z } from "zod";
-import { noteSchema } from "../models/Note";
+import { Note } from "../models/Note";
 
-export type NoteFormData = z.infer<typeof noteSchema>;
-
-export type TablatureKeys = keyof NoteFormData['tablature'];
+export type NoteFormData = Note;

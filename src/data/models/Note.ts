@@ -1,14 +1,10 @@
 import { z } from "zod";
 
 export const noteSchema = z.object({
-    title: z.string().min(1, 'O título é obrigatório'),
-    description: z.string().optional(),
-    tablature: z.object({
-      E: z.number().int(),
-      A: z.number().int(),
-      D: z.number().int(),
-      G: z.number().int(),
-      B: z.number().int(),
-      e: z.number().int(),
-    }),
-  });
+  id: z.number().optional(), // Torne o id opcional para facilitar a criação
+  title: z.string().min(1, 'O título é obrigatório'),
+  description: z.string().optional(),
+  tablature: z.record(z.number().int()), // Define que as chaves são strings e os valores são números inteiros
+});
+
+export type Note = z.infer<typeof noteSchema>;
