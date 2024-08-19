@@ -31,6 +31,8 @@ const saveNotesData = (data: any) => {
 
 
 export async function POST(request: Request) {
+  await new Promise((resolve) => setTimeout(resolve, 2000))
+
   const body = await request.json();
 
   try {
