@@ -8,10 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // Fonts
       fontFamily: {
         sans: ['var(--font-inter)'],
         poppins: ['var(--font-poppins)']
       },
+      // Grid
       gridTemplateRows: {
         app: 'min-content max-content',
         Frets: '96px 6px 96px 6px 96px 6px 96px',
@@ -19,11 +21,17 @@ const config: Config = {
       gridTemplateColumns: {
         Neck: 'repeat(4, minmax(0, 1fr))',
       },
+      // Size
       height: {
         main: 'calc(100% - 160px)'
       },
+      // Spacing
       spacing: {
         mr: "4px" 
+      },
+      // Animation
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
       }
     },
   },
