@@ -4,7 +4,7 @@ import Button from "@/components/atoms/Button";
 import Notes from "@/components/molecules/Notes";
 import Tab from "@/components/organisms/Tab";
 import Empty from "@/components/templates/Empty";
-import { Note } from "@/data/types/notes";
+import { Note } from "@/data/models/Note";
 import { MoveRight, PlusCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

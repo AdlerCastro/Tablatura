@@ -3,10 +3,10 @@
 import { getNotes } from "@/app/actions/getNotes";
 import { useQuery } from "@tanstack/react-query";
 import Button from "@/components/atoms/Button";
-import { Note } from "@/data/types/notes";
+import { NoteFormData } from "@/data/types/NoteFormData";
 
 interface NotesProps {
-  onSendNote: (data: Note) => void;
+  onSendNote: (data: NoteFormData) => void;
 }
 
 export default function Notes({ onSendNote }: NotesProps) {
