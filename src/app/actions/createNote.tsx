@@ -5,7 +5,7 @@ import { NoteFormData } from "@/data/types/NoteFormData";
 
 // Função para criar a nota
 export async function createNote(newNote: NoteFormData) {
-  const response = await api("/api/notes", {
+  const response = await api("/Notes/createNote", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
