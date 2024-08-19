@@ -10,7 +10,7 @@ export default function ProjectLayout({
   return (
     <ReactQueryProvider>
       <TabProvider>
-        <main className="mx-auto w-screen h-screen">
+        <main className="relative mx-auto w-screen h-screen">
           <Header />
           {children}
         </main>
