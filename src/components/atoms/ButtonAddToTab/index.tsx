@@ -1,16 +1,17 @@
 "use client";
 
 import { useTab } from "@/context/tab-provider";
+import { NoteFormData } from "@/data/types/NoteFormData";
 import Button from "../Button";
 
 export interface ButtonAddToTabProps {
-  noteId: number;
+  note: NoteFormData;
 }
 
-export function ButtonAddToTab({ noteId }: ButtonAddToTabProps) {
+export function ButtonAddToTab({ note }: ButtonAddToTabProps) {
   const { addToTab } = useTab();
   function handleAddNote() {
-    addToTab(noteId);
+    addToTab(note);
   }
 
   return (
