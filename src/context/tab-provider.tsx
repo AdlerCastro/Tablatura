@@ -1,14 +1,15 @@
 "use client";
 
+import { NoteFormData } from "@/data/types/NoteFormData";
 import { createContext, ReactNode, useContext, useState } from "react";
 
 interface TabNote {
-  noteId: number;
+  note: NoteFormData;
 }
 
 interface TabContextType {
   notes: TabNote[];
-  addToTab: (noteId: number) => void;
+  addToTab: (note: NoteFormData) => void;
 }
 
 const TabContext = createContext({} as TabContextType);
@@ -16,18 +17,8 @@ const TabContext = createContext({} as TabContextType);
 export default function TabProvider({ children }: { children: ReactNode }) {
   const [tabNotes, setTabNotes] = useState<TabNote[]>([]);
 
-  function addToTab(noteId: number) {
-    setTabNotes((state) => {
-      const noteInTab = state.some((note) => note.noteId === noteId);
-
-      if (noteInTab) {
-        return state.map((item) => {
-          return item;
-        });
-      } else {
-        return [...state, { noteId, quantity: 1 }];
-      }
-    });
+  function addToTab(note: NoteFormData) {
+    setTabNotes((prevNotes) => [...prevNotes, { note }]);
   }
 
   return (
