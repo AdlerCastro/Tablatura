@@ -23,7 +23,8 @@ const config: Config = {
       },
       // Size
       height: {
-        main: 'calc(100% - 160px)'
+        main: 'calc(100% - 160px)',
+        tab: 'calc(100% - 384px)'
       },
       // Spacing
       spacing: {
