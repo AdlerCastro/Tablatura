@@ -26,21 +26,19 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-row justify-between gap-2 px-2 py-4 h-main">
+    <div className="w-full flex flex-col lg:flex-row gap-2 px-2 py-4 h-main overflow-auto">
       <div
-        className={`flex flex-row gap-3 p-4 min-w-64 ${
-          buttonState ? "w-[700px]" : "w-64"
+        className={`flex flex-row gap-3 p-4 w-full ${
+          buttonState ? "h-96 lg:h-full lg:w-96" : "h-20 lg:w-48 lg:h-full"
         } bg-zinc-800 border-t border-solid border-zinc-500 rounded-lg transition-all duration-300 overflow-x-hidden`}
       >
-        <div className="flex flex-col gap-3 min-w-60 transition-all items-center scrollbar scrollbar-thumb-zinc-700 scrollbar-thumb-rounded-full scrollbar-w-2">
+        <div className="flex flex-col gap-3 h-full transition-all items-center scrollbar scrollbar-thumb-zinc-700 scrollbar-thumb-rounded-full scrollbar-w-2">
           <Button
             className="flex flex-row items-center gap-2 group hover:scale-105"
             onClick={handleClickButton}
           >
-            <h2 className="text-lg transition-all duration-300">
-              Notas disponíveis
-            </h2>
-            <MoveRight className="group-hover:scale-125 transition-all duration-300" />
+            <h2 className="text-lg transition-all duration-300">Notas</h2>
+            <MoveRight className="hidden lg:block group-hover:scale-125 transition-all duration-300" />
           </Button>
 
           <Notes onSendNote={handleShowNote} />
@@ -49,13 +47,13 @@ export default function Home() {
             onClick={() => router.push("/CreateNote")}
             className="w-[80%] hover:scale-105 flex flex-row gap-2 items-center justify-center bg-green-700 hover:bg-green-800 p-3 transition-all duration-200"
           >
-            <PlusCircle /> Criar nova nota
+            <PlusCircle /> Criar nota
           </Button>
         </div>
 
         {showNote ? (
           <div
-            className={`flex flex-col gap-2 items-center overflow-hidden transition-all duration-500 ${
+            className={`flex flex-col gap-2 items-center overflow-x-hidden transition-all duration-500 h-full ${
               buttonState ? "w-full block" : "w-0"
             }`}
           >
@@ -75,7 +73,13 @@ export default function Home() {
         )}
       </div>
 
-      <Tab />
+      <div
+        className={`w-full transition-all ${
+          buttonState ? "h-tab lg:h-full lg:w-[70%]" : "h-full lg:w-full"
+        }`}
+      >
+        <Tab />
+      </div>
     </div>
   );
 }

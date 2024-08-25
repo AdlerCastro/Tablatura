@@ -21,7 +21,7 @@ export default function Notes({ onSendNote }: NotesProps) {
   }
 
   return (
-    <div className="flex flex-col gap-3 w-full items-center">
+    <div className="flex flex-col gap-3 w-full items-center overflow-auto">
       {data?.map((note) => (
         <Button
           key={note.id}
